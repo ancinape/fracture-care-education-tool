@@ -18,7 +18,8 @@ public class ShowIdealPositions : MonoBehaviour
 
         // Make screws invisible at beginning
         foreach (GameObject g_screw in ghost_screws) {
-                g_screw.gameObject.SetActive( false );
+                g_screw.GetComponentInChildren<Renderer>().enabled=false;
+                //g_screw.gameObject.SetActive( false );
         }
     }
 
@@ -29,13 +30,15 @@ public class ShowIdealPositions : MonoBehaviour
         if (value)
         {
             foreach (GameObject g_screw in ghost_screws) {
-                g_screw.gameObject.SetActive( true );
+                g_screw.GetComponentInChildren<Renderer>().enabled=true;
+                //g_screw.gameObject.SetActive( true );
             }
         }
         else
         {
             foreach (GameObject g_screw in ghost_screws) {
-                g_screw.gameObject.SetActive( false );
+                g_screw.GetComponentInChildren<Renderer>().enabled=false;
+                //g_screw.gameObject.SetActive( false );
             }
         }
 
