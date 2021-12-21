@@ -5,7 +5,7 @@ public class ShowIdealPositions : MonoBehaviour
 {
     //Make sure to attach these Buttons in the Inspector
     public Toggle GhostToggle;
-    public GameObject Ghost_Screws;
+    public GameObject[] ghost_screws;
     bool m_Activate;
 
     void Start()
@@ -15,18 +15,28 @@ public class ShowIdealPositions : MonoBehaviour
         {
             TaskOnToggle(value);
         });
+
+        // Make screws invisible at beginning
+        foreach (GameObject g_screw in ghost_screws) {
+                g_screw.gameObject.SetActive( false );
+        }
     }
 
     void TaskOnToggle(bool value)
     {
         
 
-        if (value) {
-        Ghost_Screws.SetActive(true);
-        Debug.Log("Ghost Screws visible");
-        } else {
-        Ghost_Screws.SetActive(false);
-        Debug.Log("Ghost Screws invisible");
+        if (value)
+        {
+            foreach (GameObject g_screw in ghost_screws) {
+                g_screw.gameObject.SetActive( true );
+            }
+        }
+        else
+        {
+            foreach (GameObject g_screw in ghost_screws) {
+                g_screw.gameObject.SetActive( false );
+            }
         }
 
     }
