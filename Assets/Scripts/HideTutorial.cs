@@ -17,8 +17,7 @@ public class HideTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown (KeyCode.J)) {
-            Debug.Log(instructions.gameObject.activeSelf);
+        if (Input.GetKeyDown (KeyCode.Question)) {
             if (instructions.gameObject.activeSelf) {
                 instructions.gameObject.SetActive( false );
             }
