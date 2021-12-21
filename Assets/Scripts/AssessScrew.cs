@@ -17,32 +17,6 @@ public class AssessScrew : MonoBehaviour
     {
         assess.GetComponent<Button>().onClick.AddListener(TaskOnClick);
     }
-    /*
-    string returnClosestScrew(GameObject[] real_screws, GameObject[] ghost_screws)
-    {
-        float smallest_distance_between_screws  = 99999;
-        GameObject closest_screw;
-        GameObject closest_g_screw;
-
-        foreach(GameObject screw in real_screws)
-        {
-            foreach(GameObject g_screw in ghost_screws)
-            {
-                float dist = Vector3.Distance(screw.transform.position,g_screw.transform.position);
-                if (dist < smallest_distance_between_screws)
-                {
-                    smallest_distance_between_screws = dist;
-                    closest_screw = screw;
-                    closest_g_screw = g_screw;
-                    Debug.Log("Closest screws are " + smallest_distance_between_screws + " away between " + closest_screw + " and " + closest_g_screw);
-                }
-
-            }  
-            
-        }
-        return ("Closest screws are " + smallest_distance_between_screws + " away ");
-    }
-    */
 
     bool checkScrewInPlace(GameObject real_screw, GameObject ghost_screw)
     {
@@ -59,23 +33,57 @@ public class AssessScrew : MonoBehaviour
             return false;
         }
     }
+ /// <summary>
+ /// Returns the percentage of obj contained by region. Both obj and region are calculated as quadralaterals for performance purposes.
+ /// </summary>
+ /// <param name="obj"></param>
+ /// <param name="region"></param>
+ /// <returns></returns>
+ private float BoundsContainedPercentage( GameObject real_screw, GameObject ghost_screw )
+ {
+    var total = 1f;
+
+    Bounds obj = real_screw.GetComponent<Collider>().bounds;
+    Bounds region = ghost_screw.GetComponent<Collider>().bounds;
+ 
+    for ( var i = 0; i < 3; i++ )
+    {
+        var dist = obj.min[i] > region.center[i] ?
+            obj.max[i] - region.max[i] :
+            region.min[i] - obj.min[i];
+
+        total *= Mathf.Clamp01(1f - dist / obj.size[i]);
+    }
+
+    return total;
+ }
 
     void TaskOnClick()
     {
+        int correct_screws = 0;
         foreach(GameObject screw in real_screws)
         {
             foreach(GameObject g_screw in ghost_screws)
             {
                 if (checkScrewInPlace(screw,g_screw))
                 {
-                    assessResult.text = (screw + " is within " + g_screw + "!");
+                    Debug.Log(BoundsContainedPercentage(screw, g_screw));
+                    if (BoundsContainedPercentage(screw, g_screw) > 0.9)
+                    {
+                        correct_screws += 1;
+                        assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
+                    }
+    
+                    continue;
                 }
                 else
                 {
                     //Debug.Log(screw + " is NOT within " + g_screw + "!");
                 }
             }
-        }   
+        }
+
+        Debug.Log(correct_screws);
 
     }
 
