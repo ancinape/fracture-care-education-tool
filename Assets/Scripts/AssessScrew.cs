@@ -13,6 +13,8 @@ public class AssessScrew : MonoBehaviour
 
     public Text assessResult;
 
+    public float tolerancePercent;
+
     void Start()
     {
         assess.GetComponent<Button>().onClick.AddListener(TaskOnClick);
@@ -68,7 +70,7 @@ public class AssessScrew : MonoBehaviour
                 if (checkScrewInPlace(screw,g_screw))
                 {
                     Debug.Log(BoundsContainedPercentage(screw, g_screw));
-                    if (BoundsContainedPercentage(screw, g_screw) > 0.9)
+                    if (BoundsContainedPercentage(screw, g_screw) > tolerancePercent)
                     {
                         correct_screws += 1;
                         assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
