@@ -4,7 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartGame: MonoBehaviour {
-    public void StartFractureCare() {
+    public static bool isPreTest = false;
+
+    public void StartPreTest() {
+        isPreTest = true;
+        SceneManager.LoadScene(1);
+    }
+
+    public void StartPostTest() {
+        isPreTest = false;
         SceneManager.LoadScene(1);
     }
     
