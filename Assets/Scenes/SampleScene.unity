@@ -670,10 +670,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 4.096199
-  m_Height: 88.78004
+  m_Radius: 6.962203
+  m_Height: 89.46879
   m_Direction: 1
-  m_Center: {x: 0.000005965264, y: 40.35468, z: -0.00056232314}
+  m_Center: {x: 0, y: 40.699078, z: 0}
 --- !u!1 &633945417
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +818,8 @@ MonoBehaviour:
   - {fileID: 1397897912}
   assess: {fileID: 633945419}
   assessResult: {fileID: 8138523}
-  tolerancePercent: 0
+  tolerancePercent: 0.8
+  assessLimit: 3
 --- !u!1 &645346707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,7 +2418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000038146973
+      value: 0.995
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2450,6 +2451,18 @@ PrefabInstance:
     - target: {fileID: 400028, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400032, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 400032, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 400032, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -108.1
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 3cbfbda37c564ba4891b28079d029590, type: 3}
       propertyPath: Camera
