@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,10 @@ public class AssessScrew : MonoBehaviour
     public Text assessResult;
 
     public float tolerancePercent;
+
+    public int assessLimit = 3;
+
+    private int assessCounter = 0;
 
     void Start()
     {
@@ -48,20 +53,48 @@ public class AssessScrew : MonoBehaviour
     Bounds obj = real_screw.GetComponent<Collider>().bounds;
     Bounds region = ghost_screw.GetComponent<Collider>().bounds;
  
-    for ( var i = 0; i < 3; i++ )
-    {
-        var dist = obj.min[i] > region.center[i] ?
-            obj.max[i] - region.max[i] :
-            region.min[i] - obj.min[i];
 
-        total *= Mathf.Clamp01(1f - dist / obj.size[i]);
+    /*
+    if (region.Contains(obj.min) 
+    && region.Contains(obj.center)
+    && region.Contains(obj.max))
+    {
+        for ( var i = 0; i < 3; i++)
+        {
+            total *= Mathf.Clamp01(obj.center[i] / region.center[i]);
+        }
     }
 
+    else
+    {
+        total = 0;
+    }
+    */
+
+    for ( var i = 0; i < 3; i++)
+    {
+        total *= Mathf.Clamp01(obj.center[i] / region.center[i]);
+    }
+
+    Debug.Log("Overlap by" + total);
     return total;
  }
 
     void TaskOnClick()
     {
+
+        if (!StartGame.isPreTest)
+        {
+            assessCounter += 1;
+        }
+        // Write to assessResult.txt
+        StreamWriter writer = new StreamWriter("Assets/assessResult.txt", true);
+        if (StartGame.isPreTest)
+            { writer.WriteLine("PRE-TEST"); }
+        else
+            { writer.WriteLine("POST-TEST"); }
+        writer.WriteLine("Assessment #" + assessCounter);
+        writer.WriteLine("Tolerance at " + tolerancePercent);
         int correct_screws = 0;
         foreach(GameObject screw in real_screws)
         {
@@ -69,21 +102,32 @@ public class AssessScrew : MonoBehaviour
             {
                 if (checkScrewInPlace(screw,g_screw))
                 {
-                    Debug.Log(BoundsContainedPercentage(screw, g_screw));
-                    if (BoundsContainedPercentage(screw, g_screw) > tolerancePercent)
+                    if (BoundsContainedPercentage(screw, g_screw) >= tolerancePercent)
                     {
                         correct_screws += 1;
-                        assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
                     }
-    
-                    continue;
+                assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
+                writer.WriteLine("Placement accuracy of " + screw + " compared to " + g_screw + " is  " + BoundsContainedPercentage(screw, g_screw));
+                continue;
                 }
-                else
-                {
-                    //Debug.Log(screw + " is NOT within " + g_screw + "!");
-                }
+
+            writer.WriteLine("Placement accuracy of " + screw + " compared to " + g_screw + " is  " + BoundsContainedPercentage(screw, g_screw));
+            
             }
         }
+    writer.WriteLine(correct_screws + " out of 3 screws are correctly placed");
+    writer.WriteLine("-----------------------");
+    writer.WriteLine("-----------------------");
+    writer.Close();
+    // End write
+
+    if (assessCounter >= assessLimit)
+    {
+            foreach (GameObject g_screw in ghost_screws) {
+            g_screw.GetComponentInChildren<Renderer>().enabled=true;
+            //g_screw.gameObject.SetActive( false );
+            }
+    }
 
         Debug.Log(correct_screws);
 
