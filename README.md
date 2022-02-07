@@ -1,5 +1,5 @@
 # Fracture Care (Surgery Residency) Education Tool
-The FCET is intended to teach and assess fixation of femoral neck fracture for Yale's surgegeons in residence.
+The FCET is intended to teach and assess fixation of femoral neck fracture for Yale's surgeons in residence.
 
 ## Controls
 ### Camera Controls:
