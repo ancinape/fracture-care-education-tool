@@ -86,7 +86,18 @@ public class Gizmo : MonoBehaviour
         Type = type;
         AxisCenter.SetType(type);
         AxisX.SetType(type);
-        AxisY.SetType(type);
+        AxisY.SetType(GizmoTypes.Position);
+        if (type == GizmoTypes.Rotation)
+        {
+            Debug.Log("lol");
+            AxisY.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("fail");
+            AxisY.SetActive(true);
+        }
+        //AxisY.SetType(type);
         AxisZ.SetType(type);
     }
     public void ClearSelection()
