@@ -89,12 +89,10 @@ public class Gizmo : MonoBehaviour
         AxisY.SetType(GizmoTypes.Position);
         if (type == GizmoTypes.Rotation)
         {
-            Debug.Log("lol");
             AxisY.SetActive(false);
         }
         else
         {
-            Debug.Log("fail");
             AxisY.SetActive(true);
         }
         //AxisY.SetType(type);

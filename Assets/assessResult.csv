@@ -1,0 +1,105 @@
+,,,,POST-TEST,,
+,,,,Assessment #1,Tolerance at 0.95,
+,,,,Red Screw,Trans.,Rot.
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Green Screw,Trans.,Rot.
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Blue Screw,Trans.,Rot.
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
+,,,,POST-TEST,,
+,,,,Assessment #1,Tolerance at 0.95,
+,,,,Red Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Green Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Blue Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
+,,,,POST-TEST,,
+,,,,Assessment #2,Tolerance at 0.95,
+,,,,Red Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Green Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Blue Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
+,,,,PRE-TEST,,
+,,,,Assessment #1,Tolerance at 0.95,
+,,,,Red Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Green Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Blue Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
+,,,,PRE-TEST,,
+,,,,Assessment #1,Tolerance at 0.95,
+,,,,Red Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Green Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Blue Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
+,,,,PRE-TEST,,
+,,,,Assessment #2,Tolerance at 0.95,
+,,,,Red Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Green Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,Blue Screw,Translational Accuracy,Rotational Accuracy
+,,,,Ghost Red Screw,0,0.8286155
+,,,,Ghost Green Screw,0,0.8286155
+,,,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
+,,,,PRE-TEST,,
+,,,,Assessment #3,Tolerance at 0.95,
+,,,,Red Screw,Translational Accuracy,Rotational Accuracy
+Pre-test,0.95,3,red screw,Ghost Red Screw,0,0.8286155
+Pre-test,1.95,4,red screw,Ghost Green Screw,0,0.8286155
+Pre-test,2.95,5,red screw,Ghost Blue Screw,0,0.8286155
+Pre-test,3.95,6,,Green Screw,Translational Accuracy,Rotational Accuracy
+Pre-test,4.95,7,,Ghost Red Screw,0,0.8286155
+Pre-test,5.95,8,,Ghost Green Screw,0,0.8286155
+Pre-test,6.95,9,,Ghost Blue Screw,0,0.8286155
+Pre-test,7.95,10,,Blue Screw,Translational Accuracy,Rotational Accuracy
+Pre-test,8.95,11,,Ghost Red Screw,0,0.8286155
+Pre-test,9.95,12,,Ghost Green Screw,0,0.8286155
+Pre-test,0,13,,Ghost Blue Screw,0,0.8286155
+,,,,0 out of 3 screws are correctly placed,,
