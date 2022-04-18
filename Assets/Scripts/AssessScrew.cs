@@ -31,6 +31,8 @@ public class AssessScrew : MonoBehaviour
 
     public Text assessResult;
 
+    public Text assessResultEnd;
+
     public float tolerancePercent;
 
     public int assessLimit = 3;
@@ -84,58 +86,47 @@ public class AssessScrew : MonoBehaviour
 
     void TaskOnClick()
     {
-
-        //if (!StartGame.isPreTest)
-        //{
             assessCounter += 1;
-        //}
-        // Write to assessResult.txt
-        StreamWriter writer = new StreamWriter("Assets/assessResult.csv", true);
-        if (StartGame.isPreTest)
-            { writer.WriteLine("PRE-TEST" + ",,"); }
-        else
-            { writer.WriteLine("POST-TEST" + ",,"); }
-        writer.WriteLine("Assessment #" + assessCounter + "," + "Tolerance at " + tolerancePercent + ",");
-        int correct_screws = 0;
-        foreach(GameObject screw in real_screws)
-        {
-            writer.WriteLine(screw.name + "," + "Translational Accuracy" + "," + "Rotational Accuracy");
-            foreach(GameObject g_screw in ghost_screws)
+            // Write to assessResult.txt
+            StreamWriter writer = new StreamWriter((Application.dataPath + "/assessResult.csv"), true);
+            Debug.Log("Wrote to" + Application.dataPath + "/assessResult.csv");
+            if (StartGame.isPreTest)
+                { writer.WriteLine("PRE-TEST" + ",,"); }
+            else
+                { writer.WriteLine("POST-TEST" + ",,"); }
+            writer.WriteLine("Assessment #" + assessCounter + "," + "Tolerance at " + tolerancePercent + ",");
+            int correct_screws = 0;
+            foreach(GameObject screw in real_screws)
             {
-                if (checkScrewInPlace(screw,g_screw))
+                writer.WriteLine(screw.name + "," + "Translational Accuracy" + "," + "Rotational Accuracy");
+                foreach(GameObject g_screw in ghost_screws)
                 {
-                    if ((BoundsContainedPercentage(screw, g_screw)[0] >= tolerancePercent) && (BoundsContainedPercentage(screw, g_screw)[1] >= tolerancePercent))
+                    if (checkScrewInPlace(screw,g_screw))
                     {
-                        Debug.Log(g_screw.name + "," + BoundsContainedPercentage(screw, g_screw)[0] + "," + BoundsContainedPercentage(screw, g_screw)[1]);
-                        correct_screws += 1;
+                        if ((BoundsContainedPercentage(screw, g_screw)[0] >= tolerancePercent) && (BoundsContainedPercentage(screw, g_screw)[1] >= tolerancePercent))
+                        {
+                            Debug.Log(g_screw.name + "," + BoundsContainedPercentage(screw, g_screw)[0] + "," + BoundsContainedPercentage(screw, g_screw)[1]);
+                            correct_screws += 1;
+                        }
+                    assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
+                    writer.WriteLine(g_screw.name + "," + BoundsContainedPercentage(screw, g_screw)[0] + "," + BoundsContainedPercentage(screw, g_screw)[1]);
+                    continue;
                     }
                 assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
                 writer.WriteLine(g_screw.name + "," + BoundsContainedPercentage(screw, g_screw)[0] + "," + BoundsContainedPercentage(screw, g_screw)[1]);
-                continue;
                 }
-            assessResult.text = (correct_screws + " out of 3 screws are correctly placed");
-            writer.WriteLine(g_screw.name + "," + BoundsContainedPercentage(screw, g_screw)[0] + "," + BoundsContainedPercentage(screw, g_screw)[1]);
             }
-        }
-        writer.WriteLine(correct_screws + " out of 3 screws are correctly placed" + "," + ",");
-        writer.Close();
-        // End write
-
-        if (!StartGame.isPreTest)
+            writer.WriteLine(correct_screws + " out of 3 screws are correctly placed" + "," + ",");
+            writer.Close();
+            // End write
+        if (assessCounter >= assessLimit)
         {
-            if (assessCounter >= assessLimit)
+            if (!StartGame.isPreTest)
             {
-                    foreach (GameObject g_screw in ghost_screws) {
-                    g_screw.GetComponentInChildren<Renderer>().enabled=true;
-                    //g_screw.gameObject.SetActive( false );
-                    }
-            }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+                foreach (GameObject g_screw in ghost_screws) { g_screw.GetComponentInChildren<Renderer>().enabled=true; };
+            };
+            assess.gameObject.SetActive(false);
+            assessResultEnd.gameObject.SetActive(true);
+        };
     }
 }

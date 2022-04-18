@@ -860,6 +860,7 @@ MonoBehaviour:
   - {fileID: 1397897912}
   assess: {fileID: 633945419}
   assessResult: {fileID: 8138523}
+  assessResultEnd: {fileID: 1014375559}
   tolerancePercent: 0.95
   assessLimit: 3
 --- !u!1 &645346707
@@ -1580,6 +1581,85 @@ Transform:
   m_Father: {fileID: 898938220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+--- !u!1 &1014375557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014375558}
+  - component: {fileID: 1014375560}
+  - component: {fileID: 1014375559}
+  m_Layer: 5
+  m_Name: AssessResultEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1014375558
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014375557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1889595016}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 366.3, y: -73.5}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1014375559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014375557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Test is complete. Please return to the menu.
+--- !u!222 &1014375560
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014375557}
+  m_CullTransparentMesh: 1
 --- !u!1 &1023171448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,13 +2696,14 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.25
-  m_Text: "Camera Controls:\n\nHold right-click and move mouse to rotate camera\n\nScrew
-    controls:\n\nLeft-click on a screw to see the gizmo\nLeft-click and hold on any
-    end of the gizmo to move the screw\nWhile the gizmo is visible:\n\tPress 1 to
-    see the transformation gizmo\n\tPress 2 to see the rotation gizmo\n\nPress ?
-    to hide these instructions"
+  m_Text: "Once you position your screws, click \"Assess\".\nYou have 3 attempts
+    in total.\n\nCamera Controls:\n\nHold right-click and move mouse to rotate camera\nUse
+    the mouse wheel to zoom in and out\n\nScrew controls:\n\nLeft-click on a screw
+    to see the gizmo\nLeft-click and hold on any end of the gizmo to move the screw\nWhile
+    the gizmo is visible:\n\tPress 1 to see the transformation gizmo\n\tPress 2 to
+    see the rotation gizmo\n\nPress ? to hide these instructions"
 --- !u!222 &1664625518
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2761,7 +2842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 422988318}
-  distance: 10
+  distance: 43
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -20
@@ -3097,6 +3178,7 @@ RectTransform:
   - {fileID: 8138522}
   - {fileID: 1664625516}
   - {fileID: 1144104335}
+  - {fileID: 1014375558}
   m_Father: {fileID: 1756550908}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3142,7 +3224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1977395832
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3161,7 +3243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 147.19989, y: 122.5}
+  m_AnchoredPosition: {x: -400, y: 122.5}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1977395833
