@@ -13,7 +13,7 @@ The FCET is intended to teach and assess fixation of femoral neck fracture for Y
 
 ## Download
 
-See Releases for the latest version of this tool. The tool is available for Windows, MacOS, and Linux computers.
+See the [latest release](https://github.com/ancinape/fracture-care-education-tool/releases/latest) to download this tool. The tool is available for Windows, MacOS, and Linux computers.
 
 ## Reasoning
 The tool was created as part of a spearhead into research of digital training tools in medicine and their effectiveness onto students and residents. The FCET is one such tool, designed to instruct surgeons in residence on the proper placement of screws in a fixation of a femoral neck fracture. It is meant to be used before watching a recorded lecture about the surgery (created by William McLaughlin) as a pre-test then assessing oneself again with the post-test. Both are virtually identical tests except the pre-test reveals the ideal screw positions.
